@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TrackingUtil</string>
+
+    <string name="location_no_available_Open_GPS">Location not available, Open GPS?</string>
+    <string name="activate_GPS_to_use_use_location_services">Activate GPS to use use location services?</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="allow_permission">You need to allow access to the permissions</string>
+
+</resources>
