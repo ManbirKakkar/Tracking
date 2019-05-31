@@ -28,6 +28,15 @@ Add in build.Gradle
                 maven { url 'https://jitpack.io' }
                  }
              }
+             
+             
+Java 1.8 is required to use the lib. Add the following line in build.gradle
+             
+              compileOptions {
+                     targetCompatibility 1.8
+                     sourceCompatibility 1.8
+                 }
+
 
 
 # Usage
