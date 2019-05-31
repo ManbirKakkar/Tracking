@@ -22,7 +22,9 @@ class MainActivity : AppCompatActivity() {
             var lat = TrackingUtil(this).latitude
             Log.e("lat", "$lat")
 
-            TrackingUtil(this).startTracking()
+         //   TrackingUtil(this).startTracking()
+
+            TrackingUtil(this).startTracking(1000)
 
         }
 

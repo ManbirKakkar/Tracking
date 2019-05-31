@@ -22,6 +22,7 @@ import com.agnext.trackingutil.services.TrackingService
 open class TrackingUtil constructor(private val mContext: Context): AppCompatActivity() {
 
 
+    /** Get current latitude*/
     val latitude: String
         get() {
             val gps = GPSService(mContext)
@@ -29,6 +30,7 @@ open class TrackingUtil constructor(private val mContext: Context): AppCompatAct
             return gps.latitude.toString()
         }
 
+    /** Get current longitude*/
     val longitude: String
         get() {
             val gps = GPSService(mContext)
@@ -36,18 +38,38 @@ open class TrackingUtil constructor(private val mContext: Context): AppCompatAct
             return gps.longitude.toString()
         }
 
+    /** Start tracking with default socketURl, UserId, TimeInterval*/
     fun startTracking() {
         var  mServiceIntent = Intent(mContext, TrackingService::class.java)
         mContext.startService(mServiceIntent)
 
     }
 
+    /** Start tracking with added socketURl, UserId, TimeInterval*/
+    fun startTracking(timeInterval: Int, userId:String, url:String){
+        var  mServiceIntent = Intent(mContext, TrackingService::class.java)
+        mServiceIntent.putExtra("TIME", timeInterval)
+        mServiceIntent.putExtra("USER_ID", userId)
+        mServiceIntent.putExtra("SOCKET_URL", url)
+        mContext.startService(mServiceIntent)
+    }
+
+    /** Start tracking with added TimeInterval only*/
+    fun startTracking(timeInterval: Int){
+        var  mServiceIntent = Intent(mContext, TrackingService::class.java)
+        mServiceIntent.putExtra("TIME", timeInterval)
+        mContext.startService(mServiceIntent)
+    }
+
+
+    /** Check if location permission is enabled */
     fun isLocationPermission(): Boolean {
         val result = ContextCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION)
         val result2 = ContextCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION)
         return result == PackageManager.PERMISSION_GRANTED && result2 == PackageManager.PERMISSION_GRANTED
     }
 
+    /** Request for location permission */
     fun requestLocationPermission() {
         ActivityCompat.requestPermissions(
             mContext as Activity,
@@ -56,6 +78,7 @@ open class TrackingUtil constructor(private val mContext: Context): AppCompatAct
         )
     }
 
+    /** Return for Request Permission */
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         when (requestCode) {
 
@@ -97,6 +120,7 @@ open class TrackingUtil constructor(private val mContext: Context): AppCompatAct
         }
     }
 
+    /** Show Alert Message */
     private fun showMessageOKCancel(message: String, okListener: DialogInterface.OnClickListener) {
         AlertDialog.Builder(this)
             .setMessage(message)
@@ -106,6 +130,7 @@ open class TrackingUtil constructor(private val mContext: Context): AppCompatAct
             .show()
     }
 
+    /** Show Toast */
     private fun showToast(context: Context, msg:String){
         Toast.makeText(context, "$msg", Toast.LENGTH_SHORT).show()
     }
