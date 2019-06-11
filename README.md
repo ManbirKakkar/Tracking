@@ -2,7 +2,7 @@
 
 Add in build.Gradle
 
-        implementation 'com.github.ManbirKakkar:Tracking:0.0.1'
+        implementation 'com.github.ManbirKakkar:Tracking:v0.0.3'
 
 
         allprojects {
