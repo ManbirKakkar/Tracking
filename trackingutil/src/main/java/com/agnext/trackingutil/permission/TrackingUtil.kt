@@ -47,7 +47,8 @@ open class TrackingUtil constructor(private val mContext: Context): AppCompatAct
 
     /** End Tracking*/
     fun stopTracking(){
-
+        var  mServiceIntent = Intent(mContext, TrackingService::class.java)
+        mContext.stopService(mServiceIntent)
     }
 
     /** Start tracking with added socketURl, UserId, TimeInterval*/
@@ -139,6 +140,8 @@ open class TrackingUtil constructor(private val mContext: Context): AppCompatAct
     private fun showToast(context: Context, msg:String){
         Toast.makeText(context, "$msg", Toast.LENGTH_SHORT).show()
     }
+
+
 
     companion object {
         const val REQUEST_LOCATION = 10
