@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity() {
 
          //   TrackingUtil(this).startTracking()
 
-            TrackingUtil(this).startTracking(1000)
+          //  TrackingUtil(this).startTracking(1000)
+            TrackingUtil(this).startTracking("URL_SAMPLE", "USER_ID", 1000)
 
         }
 

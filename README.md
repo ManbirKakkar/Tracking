@@ -37,9 +37,15 @@ Get latitude and Longitude
             
 Start tracking
 
-          TrackingUtil(this).startTracking()
+            TrackingUtil(this).startTracking("URL_SAMPLE", "USER_ID", TIME_INTERVAL)
+            
           
-Start tracking at "N" milliseconds
-          
-          TrackingUtil(this).startTracking(N) //N is in Int
+Backend Socket implementation should be done to receive emit as
+
+           var jObj = JSONObject()
+           jObj.put("lat", "$latitude")
+           jObj.put("lng", "$longitude")
+           jObj.put("userId", "$mUserId")
+           
+           mSocket!!.emit("addDoc", jObj)
           

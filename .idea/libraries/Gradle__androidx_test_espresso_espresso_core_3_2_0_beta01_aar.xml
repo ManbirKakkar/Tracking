@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e2dd1d62f3981837aececcc95b717d50/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e2dd1d62f3981837aececcc95b717d50/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e2dd1d62f3981837aececcc95b717d50/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

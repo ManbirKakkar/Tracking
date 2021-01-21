@@ -39,8 +39,12 @@ open class TrackingUtil constructor(private val mContext: Context): AppCompatAct
         }
 
     /** Start tracking with default socketURl, UserId, TimeInterval*/
-    fun startTracking() {
+    fun startTracking(url:String, userId: String, timeInterval: Int) {
         var  mServiceIntent = Intent(mContext, TrackingService::class.java)
+        mServiceIntent.putExtra("SOCKET_URL", url);
+        mServiceIntent.putExtra("USER_ID", userId);
+        mServiceIntent.putExtra("TIME", timeInterval);
+
         mContext.startService(mServiceIntent)
 
     }

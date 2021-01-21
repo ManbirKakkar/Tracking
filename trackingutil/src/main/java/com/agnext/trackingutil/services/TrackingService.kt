@@ -25,9 +25,9 @@ class TrackingService : Service() {
 
     private var mHandler = Handler()
 
-    var mInterval: Int? = 5000
-    var mURL: String? = "http://ec2-18-224-21-43.us-east-2.compute.amazonaws.com:4444/"
-    var mUserId: String? = "1"
+    var mInterval: Int? = 1000
+    var mURL: String? = ""
+    var mUserId: String? = ""
 
     private var mStatusChecker: Runnable = object : Runnable {
         override fun run() {
@@ -103,7 +103,6 @@ class TrackingService : Service() {
         mInterval = intent.getIntExtra("TIME", 5000)
         mURL = intent.getStringExtra("SOCKET_URL")
         mUserId = intent.getStringExtra("USER_ID")
-
 
         startRepeatingTask()
         return START_STICKY
