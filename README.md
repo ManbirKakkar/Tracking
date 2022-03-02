@@ -35,7 +35,6 @@ Get latitude and Longitude
           var lat = TrackingUtil(this).latitude
           var lat = TrackingUtil(this).longitude
 Start tracking
-
             TrackingUtil(this).startTracking("URL_SAMPLE", "USER_ID", TIME_INTERVAL)
             
           
